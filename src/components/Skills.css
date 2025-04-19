@@ -1,0 +1,37 @@
+.skills-section {
+    background-color: #f1f5f9;
+  }
+  
+  .skills-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .skill-item {
+    margin-bottom: 30px;
+  }
+  
+  .skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .skill-info span {
+    font-weight: 600;
+    color: #2c3e50;
+  }
+  
+  .skill-bar {
+    height: 10px;
+    background-color: #e0e6ed;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .skill-progress {
+    height: 100%;
+    background-color: #3498db;
+    border-radius: 5px;
+    transition: width 1.5s ease;
+  }

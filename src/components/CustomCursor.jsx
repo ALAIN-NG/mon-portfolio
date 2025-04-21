@@ -1,67 +1,62 @@
 import React, { useEffect } from 'react';
+import styled from 'styled-components';
+
+// Utilisation de styled-components pour éviter l'erreur JSX
+const CursorDiv = styled.div`
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+  transform: translate3d(-50%, -50%, 0);
+  transition: 
+    transform 0.2s ease,
+    width 0.3s ease,
+    height 0.3s ease,
+    background 0.3s ease;
+  z-index: 9999;
+  mix-blend-mode: difference;
+
+  ${props => props.$hover && `
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.4);
+  `}
+`;
 
 const CustomCursor = () => {
+  const cursorRef = React.useRef(null);
+  const [isHovering, setIsHovering] = React.useState(false);
+
   useEffect(() => {
-    const cursor = document.querySelector('.custom-cursor');
-    const links = document.querySelectorAll('a, button, .btn');
-    
     const moveCursor = (e) => {
-      cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+      }
     };
-    
-    const cursorHover = () => {
-      cursor.classList.add('cursor-hover');
-    };
-    
-    const cursorUnhover = () => {
-      cursor.classList.remove('cursor-hover');
-    };
+
+    const handleHover = () => setIsHovering(true);
+    const handleUnhover = () => setIsHovering(false);
 
     document.addEventListener('mousemove', moveCursor);
     
-    links.forEach(link => {
-      link.addEventListener('mouseenter', cursorHover);
-      link.addEventListener('mouseleave', cursorUnhover);
+    const interactiveElements = document.querySelectorAll('a, button, .btn');
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', handleHover);
+      el.addEventListener('mouseleave', handleUnhover);
     });
 
     return () => {
       document.removeEventListener('mousemove', moveCursor);
-      links.forEach(link => {
-        link.removeEventListener('mouseenter', cursorHover);
-        link.removeEventListener('mouseleave', cursorUnhover);
+      interactiveElements.forEach(el => {
+        el.removeEventListener('mouseenter', handleHover);
+        el.removeEventListener('mouseleave', handleUnhover);
       });
     };
   }, []);
 
-  return (
-    <>
-      <div className="custom-cursor"></div>
-      <style jsx>{`
-        .custom-cursor {
-          position: fixed;
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          background: rgba(25, 255, 255, 0.6);
-          pointer-events: none;
-          transform: translate3d(-50%, -50%, 0);
-          transition: 
-            transform 0.2s ease,
-            width 0.3s ease,
-            height 0.3s ease,
-            background 0.3s ease;
-          z-index: 9999;
-          mix-blend-mode: difference;
-        }
-        
-        .cursor-hover {
-          width: 50px;
-          height: 50px;
-          background: rgba(255, 255, 255, 0.4);
-        }
-      `}</style>
-    </>
-  );
+  return <CursorDiv ref={cursorRef} $hover={isHovering} />;
 };
 
 export default CustomCursor;

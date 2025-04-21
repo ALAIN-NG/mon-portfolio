@@ -56,16 +56,6 @@ const Contact = () => {
     });
   };
 
-  // Animation des éléments
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.6 }
-    }
-  };
-
   return (
     <section id="contact" className="contact-section">
       <div className="container">
@@ -99,7 +89,7 @@ const Contact = () => {
             <div className="social-links">
               <a href="https://github.com/ALAIN-NG/" className="social-icon"><i className="fab fa-github"></i></a>
               <a href="https://www.linkedin.com/in/alain-ngueudjang-035b97290/" className="social-icon"><i className="fab fa-linkedin"></i></a>
-              <a href="#" className="social-icon"><i className="fab fa-twitter"></i></a>
+              <a href="https://www.linkedin.com/in/alain-ngueudjang-035b97290/" className="social-icon"><i className="fab fa-twitter"></i></a>
             </div>
           </motion.div>
 

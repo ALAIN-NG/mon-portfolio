@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
-import photo from '../assets/photo.jpg'; // Importe ton image
+import alain from '../assets/alain.jpg'; // Importe ton image
 import './About.css';
 
 const About = () => {
@@ -70,8 +70,8 @@ const About = () => {
             
             <motion.div className="about-image" variants={itemVariants}>
               <img 
-                src={photo} 
-                alt="Ma photo de profil" 
+                src={alain} 
+                alt="Alain Ng" 
                 className="profile-photo"
               />
             </motion.div>

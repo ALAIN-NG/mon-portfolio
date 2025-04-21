@@ -21,7 +21,7 @@
     "tsparticles": "^3.8.1",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://ALAIN-NG.github.io/mon-portfolio",
+  "homepage": ".",
   "scripts": {
     "start": "node server.js",
     "build": "react-scripts build",

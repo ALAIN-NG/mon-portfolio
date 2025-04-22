@@ -54,6 +54,11 @@
   z-index: -1;
 }
 
+@media(max-width: 760px) {
+  .header { padding: 1rem}
+  .section-title { font-size: 1.8rem}
+}
+
 
 /* Ajoute Font Awesome pour les icônes */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');

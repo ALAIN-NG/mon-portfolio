@@ -26,6 +26,7 @@
     "start": "node server.js",
     "build": "react-scripts build",
     "render-build": "npm install && npm run build",
+    "dev": "NODE_ENV=development nodemon server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -48,6 +49,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0"
+    "gh-pages": "^6.3.0",
+    "nodemon": "^3.1.9"
   }
 }

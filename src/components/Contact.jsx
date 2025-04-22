@@ -111,6 +111,7 @@ const Contact = () => {
                 required
               />
             </div>
+            <p></p>
             <div className="form-group">
               <input
                 type="email"
@@ -121,6 +122,7 @@ const Contact = () => {
                 required
               />
             </div>
+            <p></p>
             <div className="form-group">
               <textarea
                 name="message"
@@ -131,6 +133,7 @@ const Contact = () => {
                 required
               ></textarea>
             </div>
+            <p></p>
             <button 
               type="submit" 
               className="btn"
